@@ -1,0 +1,262 @@
+.delete-scope-overlay {
+  position: fixed;
+  z-index: 1100;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: rgb(0 0 0 / 55%);
+}
+
+.delete-scope-modal {
+  width: min(460px, 100%);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background-color: var(--bg-secondary);
+  box-shadow: 0 20px 60px rgb(0 0 0 / 30%);
+}
+
+.delete-scope-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.delete-scope-header h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 18px;
+}
+
+.delete-scope-header p {
+  margin: 6px 0 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.delete-scope-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.delete-scope-close:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+}
+
+.delete-scope-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+
+.delete-warning-text {
+  margin: 0 0 6px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.delete-scope-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  text-align: start;
+  cursor: pointer;
+}
+
+.delete-scope-option:hover {
+  border-color: var(--accent);
+  background-color: var(--bg-tertiary);
+}
+
+.delete-scope-option.danger {
+  color: var(--danger);
+}
+
+.delete-scope-option.danger:hover {
+  border-color: var(--danger);
+}
+
+.delete-scope-option > svg {
+  flex-shrink: 0;
+}
+
+.delete-scope-option div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.delete-scope-option strong {
+  font-size: 14px;
+}
+
+.delete-scope-option span {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.delete-confirmation {
+  padding: 20px;
+}
+
+.delete-confirmation p {
+  margin: 0 0 20px;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.delete-confirmation-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.delete-cancel-button,
+.confirm-delete-button {
+  min-width: 100px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.delete-cancel-button {
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  background-color: transparent;
+}
+
+.delete-cancel-button:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.confirm-delete-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 0;
+  color: #ffffff;
+  background-color: var(--danger);
+}
+
+.confirm-delete-button:hover {
+  opacity: 0.9;
+}
+@media (max-width: 700px) {
+  .delete-scope-overlay {
+    align-items: flex-end;
+
+    padding: 0;
+
+    background-color: rgb(0 0 0 / 60%);
+  }
+
+  .delete-scope-modal {
+    width: 100%;
+    max-width: none;
+
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+
+    border-radius: 16px 16px 0 0;
+  }
+
+  .delete-scope-header {
+    padding: 18px 16px;
+  }
+
+  .delete-scope-header h3 {
+    font-size: 17px;
+  }
+
+  .delete-scope-header p {
+    margin-top: 5px;
+
+    font-size: 13px;
+  }
+
+  .delete-scope-close {
+    width: 38px;
+    height: 38px;
+  }
+
+  .delete-scope-options {
+    gap: 10px;
+
+    padding: 16px;
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+
+  .delete-warning-text {
+    margin-bottom: 4px;
+
+    font-size: 13px;
+  }
+
+  .delete-scope-option {
+    min-height: 68px;
+
+    padding: 14px;
+
+    border-radius: 10px;
+  }
+
+  .delete-scope-option strong {
+    font-size: 14px;
+  }
+
+  .delete-scope-option span {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .delete-confirmation {
+    padding: 18px 16px;
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+
+  .delete-confirmation p {
+    margin-bottom: 18px;
+
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .delete-confirmation-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+  }
+
+  .delete-cancel-button,
+  .confirm-delete-button {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+  }
+}
