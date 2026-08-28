@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "../../context/AuthContext";
 import rattebIcon from "../../assets/ratteb-icon.png";
 import "./ForgotPasswordPage.css";
-
+import { usePageTitle } from "../../hooks/usePageTitle";
 function ForgotPasswordPage() {
   const { t } = useTranslation();
   const { resetPassword } = useAuth();
@@ -13,7 +13,7 @@ function ForgotPasswordPage() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-
+  usePageTitle("pageTitles.forgotPassword");
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 

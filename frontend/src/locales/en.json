@@ -117,5 +117,13 @@
   "invalidResetLinkDescription": "This reset link may be expired or invalid. Request a new link and try again.",
   "requestNewResetLink": "Request New Link",
   "showPassword": "Show password",
-  "hidePassword": "Hide password"
+  "hidePassword": "Hide password",
+  "pageTitles": {
+    "schedule": "Ratteb | Schedule",
+    "account": "Ratteb | Account",
+    "login": "Ratteb | Login",
+    "register": "Ratteb | Register",
+    "forgotPassword": "Ratteb | Forgot Password",
+    "resetPassword": "Ratteb | Reset Password"
+  }
 }

@@ -117,5 +117,13 @@
   "invalidResetLinkDescription": "قد يكون رابط الاستعادة منتهيًا أو غير صالح. اطلب رابطًا جديدًا وحاول مرة أخرى.",
   "requestNewResetLink": "طلب رابط جديد",
   "showPassword": "إظهار كلمة المرور",
-  "hidePassword": "إخفاء كلمة المرور"
+  "hidePassword": "إخفاء كلمة المرور",
+  "pageTitles": {
+    "schedule": "رتّب | الجدول",
+    "account": "رتّب | الحساب",
+    "login": "رتّب | تسجيل الدخول",
+    "register": "رتّب | إنشاء حساب",
+    "forgotPassword": "رتّب | استعادة كلمة المرور",
+    "resetPassword": "رتّب | تعيين كلمة مرور جديدة"
+  }
 }

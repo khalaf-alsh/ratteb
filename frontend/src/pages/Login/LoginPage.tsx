@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "../../context/AuthContext";
 import rattebIcon from "../../assets/ratteb-icon.png";
 import "./LoginPage.css";
+import { usePageTitle } from "../../hooks/usePageTitle";
 
 function LoginPage() {
   const { t } = useTranslation();
@@ -16,7 +17,7 @@ function LoginPage() {
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
+  usePageTitle("pageTitles.login");
   if (user) {
     return <Navigate to="/schedule" replace />;
   }

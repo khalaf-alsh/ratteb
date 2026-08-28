@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import Toast from "../../components/ui/Toast";
 import "./AccountPage.css";
+import { usePageTitle } from "../../hooks/usePageTitle";
 
 function AccountPage() {
   const { t } = useTranslation();
@@ -25,7 +26,7 @@ function AccountPage() {
   const [loggingOut, setLoggingOut] = useState(false);
 
   const [toastMessage, setToastMessage] = useState<string | null>(null);
-
+  usePageTitle("pageTitles.account");
   useEffect(() => {
     if (!toastMessage) {
       return;

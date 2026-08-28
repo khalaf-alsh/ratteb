@@ -4,12 +4,14 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "../../context/AuthContext";
 import rattebIcon from "../../assets/ratteb-icon.png";
 import "./ResetPasswordPage.css";
-
+import { usePageTitle } from "../../hooks/usePageTitle";
 function ResetPasswordPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   const { user, loading, updatePassword } = useAuth();
+
+  usePageTitle("pageTitles.resetPassword");
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

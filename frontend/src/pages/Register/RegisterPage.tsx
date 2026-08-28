@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "../../context/AuthContext";
 import rattebIcon from "../../assets/ratteb-icon.png";
 import "./RegisterPage.css";
-
+import { usePageTitle } from "../../hooks/usePageTitle";
 function RegisterPage() {
   const { t } = useTranslation();
   const { user, signUp } = useAuth();
@@ -15,7 +15,7 @@ function RegisterPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
-
+  usePageTitle("pageTitles.register");
   if (user) {
     return <Navigate to="/schedule" replace />;
   }
