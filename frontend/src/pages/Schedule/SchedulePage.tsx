@@ -35,7 +35,10 @@ function SchedulePage() {
         {activeTab === "study" ? (
           <StudySchedule />
         ) : (
-          <div>{t("dailyPlanner")}</div>
+          <div className="daily-planner-coming-soon">
+            <h2>{t("dailyPlannerComingSoon.title")}</h2>
+            <p>{t("dailyPlannerComingSoon.description")}</p>
+          </div>
         )}
       </div>
     </div>

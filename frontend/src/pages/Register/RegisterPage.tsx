@@ -2,9 +2,10 @@ import { useState, type FormEvent } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../context/AuthContext";
+import { usePageTitle } from "../../hooks/usePageTitle";
 import rattebIcon from "../../assets/ratteb-icon.png";
 import "./RegisterPage.css";
-import { usePageTitle } from "../../hooks/usePageTitle";
+
 function RegisterPage() {
   const { t } = useTranslation();
   const { user, signUp } = useAuth();
@@ -13,10 +14,13 @@ function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [registeredEmail, setRegisteredEmail] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+
   usePageTitle("pageTitles.register");
-  if (user) {
+
+  if (user && !registeredEmail) {
     return <Navigate to="/schedule" replace />;
   }
 
@@ -37,7 +41,8 @@ function RegisterPage() {
 
     setSubmitting(true);
 
-    const authError = await signUp(email.trim(), password);
+    const trimmedEmail = email.trim();
+    const authError = await signUp(trimmedEmail, password);
 
     setSubmitting(false);
 
@@ -46,8 +51,39 @@ function RegisterPage() {
       return;
     }
 
-    navigate("/schedule", { replace: true });
+    setRegisteredEmail(trimmedEmail);
   };
+
+  if (registeredEmail) {
+    return (
+      <main className="auth-page">
+        <div className="auth-card">
+          <div className="auth-brand">
+            <img src={rattebIcon} alt="" />
+            <h1>{t("appName")}</h1>
+          </div>
+
+          <div className="auth-heading">
+            <h2>{t("registerVerification.title")}</h2>
+
+            <p>
+              {t("registerVerification.message", {
+                email: registeredEmail,
+              })}
+            </p>
+          </div>
+
+          <button
+            type="button"
+            className="auth-submit"
+            onClick={() => navigate("/login")}
+          >
+            {t("registerVerification.login")}
+          </button>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="auth-page">
